@@ -8,9 +8,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { CreditCard, Bell, Key, User } from "lucide-react";
+import { CreditCard, Bell, Key, User, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Settings() {
+  const { theme, setTheme } = useTheme();
+
   return (
     <DashboardLayout>
       <div className="space-y-6">
@@ -24,6 +27,7 @@ export default function Settings() {
         <Tabs defaultValue="profile" className="space-y-6">
           <TabsList>
             <TabsTrigger value="profile">Profile</TabsTrigger>
+            <TabsTrigger value="appearance">Appearance</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
             <TabsTrigger value="billing">Billing</TabsTrigger>
             <TabsTrigger value="api">API Keys</TabsTrigger>
@@ -99,6 +103,71 @@ export default function Settings() {
                 <div className="flex justify-end gap-2">
                   <Button variant="outline">Cancel</Button>
                   <Button>Save Changes</Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="appearance" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Appearance</CardTitle>
+                <CardDescription>Customize how the app looks and feels</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <h3 className="mb-4 text-lg font-medium">Theme</h3>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div
+                      className={`cursor-pointer rounded-lg border-2 p-4 transition-all ${
+                        theme === "light"
+                          ? "border-primary bg-primary/5"
+                          : "border-border hover:border-muted-foreground"
+                      }`}
+                      onClick={() => setTheme("light")}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+                          <Sun className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <p className="font-medium">Light Mode</p>
+                          <p className="text-sm text-muted-foreground">Clean and bright interface</p>
+                        </div>
+                      </div>
+                      {theme === "light" && (
+                        <div className="mt-3 flex items-center gap-2 text-sm text-primary">
+                          <div className="h-2 w-2 rounded-full bg-primary" />
+                          Active
+                        </div>
+                      )}
+                    </div>
+
+                    <div
+                      className={`cursor-pointer rounded-lg border-2 p-4 transition-all ${
+                        theme === "dark"
+                          ? "border-primary bg-primary/5"
+                          : "border-border hover:border-muted-foreground"
+                      }`}
+                      onClick={() => setTheme("dark")}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+                          <Moon className="h-6 w-6" />
+                        </div>
+                        <div>
+                          <p className="font-medium">Dark Mode</p>
+                          <p className="text-sm text-muted-foreground">Easy on the eyes at night</p>
+                        </div>
+                      </div>
+                      {theme === "dark" && (
+                        <div className="mt-3 flex items-center gap-2 text-sm text-primary">
+                          <div className="h-2 w-2 rounded-full bg-primary" />
+                          Active
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
