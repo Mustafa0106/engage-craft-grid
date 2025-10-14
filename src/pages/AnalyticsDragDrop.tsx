@@ -85,7 +85,7 @@ export default function AnalyticsDragDrop() {
       type: "kpi",
       title: "Total Reach",
       component: (
-        <Card>
+        <Card className="card-hover">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
@@ -106,7 +106,7 @@ export default function AnalyticsDragDrop() {
       type: "kpi",
       title: "Engagement Rate",
       component: (
-        <Card>
+        <Card className="card-hover">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 text-green-600">
@@ -127,7 +127,7 @@ export default function AnalyticsDragDrop() {
       type: "kpi",
       title: "New Followers",
       component: (
-        <Card>
+        <Card className="card-hover">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
@@ -148,7 +148,7 @@ export default function AnalyticsDragDrop() {
       type: "chart",
       title: "Engagement vs Reach",
       component: (
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle>Engagement vs Reach</CardTitle>
           </CardHeader>
@@ -200,7 +200,7 @@ export default function AnalyticsDragDrop() {
       type: "chart",
       title: "Follower Growth",
       component: (
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle>Follower Growth</CardTitle>
           </CardHeader>
@@ -255,14 +255,14 @@ export default function AnalyticsDragDrop() {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Analytics</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Analytics</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               Drag and drop widgets to customize your dashboard
             </p>
           </div>
-          <Button>
+          <Button size="sm">
             <Download className="mr-2 h-4 w-4" />
             Export Report
           </Button>
@@ -270,7 +270,7 @@ export default function AnalyticsDragDrop() {
 
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={widgets.map((w) => w.id)} strategy={rectSortingStrategy}>
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {widgets.map((widget) => (
                 <SortableWidget key={widget.id} id={widget.id}>
                   {widget.component}

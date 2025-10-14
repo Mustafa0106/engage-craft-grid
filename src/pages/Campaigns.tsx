@@ -81,21 +81,21 @@ export default function Campaigns() {
   return (
     <DashboardLayout>
       <div className="space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Campaigns</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Campaigns</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               Manage and monitor your advertising campaigns
             </p>
           </div>
-          <Button>
+          <Button size="sm">
             <Plus className="mr-2 h-4 w-4" />
             New Campaign
           </Button>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          <Card>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <Card className="card-hover">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
@@ -110,7 +110,7 @@ export default function Campaigns() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-hover">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 text-green-600">
@@ -125,7 +125,7 @@ export default function Campaigns() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-hover">
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
@@ -141,7 +141,7 @@ export default function Campaigns() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle>Campaign Performance</CardTitle>
           </CardHeader>
@@ -164,7 +164,7 @@ export default function Campaigns() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle>All Campaigns</CardTitle>
           </CardHeader>

@@ -75,6 +75,15 @@ All colors MUST be HSL.
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    
+    /* Platform-specific shadow colors for social media */
+    --shadow-facebook: 0 10px 25px -5px rgba(24, 119, 242, 0.4);
+    --shadow-instagram: 0 10px 25px -5px rgba(225, 48, 108, 0.4);
+    --shadow-twitter: 0 10px 25px -5px rgba(29, 161, 242, 0.4);
+    --shadow-linkedin: 0 10px 25px -5px rgba(10, 102, 194, 0.4);
+    --shadow-youtube: 0 10px 25px -5px rgba(255, 0, 0, 0.4);
+    --shadow-tiktok: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
     
     /* Transitions */
     --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -118,5 +127,35 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:-translate-y-1;
+  }
+  
+  .card-hover-facebook {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-facebook)] hover:-translate-y-1;
+  }
+  
+  .card-hover-instagram {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-instagram)] hover:-translate-y-1;
+  }
+  
+  .card-hover-twitter {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-twitter)] hover:-translate-y-1;
+  }
+  
+  .card-hover-linkedin {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-linkedin)] hover:-translate-y-1;
+  }
+  
+  .card-hover-youtube {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-youtube)] hover:-translate-y-1;
+  }
+  
+  .card-hover-tiktok {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-tiktok)] hover:-translate-y-1;
   }
 }

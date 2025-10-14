@@ -13,7 +13,7 @@ interface KPICardProps {
 
 export function KPICard({ title, value, change, changeType, icon: Icon, iconColor }: KPICardProps) {
   return (
-    <Card className="transition-all hover:shadow-md">
+    <Card className="card-hover">
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
           <div className="flex-1">

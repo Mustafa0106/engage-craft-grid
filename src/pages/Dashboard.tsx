@@ -125,19 +125,20 @@ export default function Dashboard() {
     <DashboardLayout>
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Dashboard</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               Welcome back! Here's what's happening with your social media.
             </p>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline">
+          <div className="flex gap-2 w-full sm:w-auto">
+            <Button variant="outline" className="flex-1 sm:flex-none" size="sm">
               <Calendar className="mr-2 h-4 w-4" />
-              Last 30 days
+              <span className="hidden sm:inline">Last 30 days</span>
+              <span className="sm:hidden">30 days</span>
             </Button>
-            <Button>
+            <Button className="flex-1 sm:flex-none" size="sm">
               <Download className="mr-2 h-4 w-4" />
               Export
             </Button>
@@ -145,7 +146,7 @@ export default function Dashboard() {
         </div>
 
         {/* KPI Cards */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {kpiData.map((kpi) => (
             <KPICard key={kpi.title} {...kpi} />
           ))}
@@ -154,7 +155,7 @@ export default function Dashboard() {
         {/* Charts Row */}
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Performance Over Time */}
-          <Card>
+          <Card className="card-hover">
             <CardHeader>
               <CardTitle>Performance Over Time</CardTitle>
             </CardHeader>
@@ -206,7 +207,7 @@ export default function Dashboard() {
           </Card>
 
           {/* Platform Comparison */}
-          <Card>
+          <Card className="card-hover">
             <CardHeader>
               <CardTitle>Platform Comparison</CardTitle>
             </CardHeader>
@@ -239,7 +240,7 @@ export default function Dashboard() {
         </div>
 
         {/* Top Posts Table */}
-        <Card>
+        <Card className="card-hover">
           <CardHeader>
             <CardTitle>Top Performing Posts</CardTitle>
           </CardHeader>
