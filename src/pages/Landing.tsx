@@ -11,15 +11,20 @@ import {
   Clock,
   CheckCircle2,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Sun,
+  Moon
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
 import heroImage from "@/assets/hero-image.jpg";
 import analyticsFeature from "@/assets/analytics-feature.jpg";
 import scheduleFeature from "@/assets/schedule-feature.jpg";
 import aiFeature from "@/assets/ai-feature.jpg";
 
 const Landing = () => {
+  const { theme, setTheme } = useTheme();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -357,6 +362,21 @@ const Landing = () => {
               <p className="text-sm text-muted-foreground">
                 The all-in-one social media management platform powered by AI
               </p>
+              <div className="flex items-center gap-2 pt-2">
+                <span className="text-sm text-muted-foreground">Theme:</span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="h-8 w-8"
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-4 w-4" />
+                  ) : (
+                    <Moon className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
             </div>
             <div>
               <h3 className="font-semibold text-foreground mb-4">Product</h3>
