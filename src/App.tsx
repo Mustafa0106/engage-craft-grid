@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Scheduler from "./pages/Scheduler";
 import AnalyticsDragDrop from "./pages/AnalyticsDragDrop";
@@ -25,7 +26,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/scheduler" element={<Scheduler />} />
             <Route path="/analytics" element={<AnalyticsDragDrop />} />
             <Route path="/inbox" element={<Inbox />} />
